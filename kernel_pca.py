@@ -7,28 +7,7 @@ from nystrompca.utils import (get_eigendecomposition, get_kappa,
 
 
 class KernelPCA(KernelMachine, Transformation):
-
-    """
-    Implements Kernel PCA.
-    Parameters
-    ----------
-    scale : bool, default=True
-        Whether to scale the input data to zero mean and unit variance
-    Attributes
-    ----------
-    explained_variance_ : numpy.ndarray, 1d
-        The variances of data along the principal components. Created
-        in the 'fit_transform' method.
-    components_ : numpy.ndarray, 2d
-        The principal components, in terms of weightings on the m
-        data points, with one principal component in each column
-        of the array. Created in the 'fit_transform' method.
-    errors_ : numpy.ndarray, 1d
-        Reconstruction error of the full dataset on the principal
-        components. Each element in the array is the reconstruction error
-        with respect to all principal components up to that index.
-        Calculated in the 'calculate_errors' method.
-    """
+  
     def __init__(self, scale:  bool = True,
                        demean: bool = True,
                        **kwargs           ):
