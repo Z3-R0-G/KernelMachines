@@ -40,11 +40,7 @@ class KernelPCA(KernelMachine, Transformation):
 
 
     def fit_transform(self, X: np.ndarray) -> np.ndarray:
-        """
-        Calculate the Kernel PCA for the supplied data matrix.
-        Calculates the principal components, scores and values
-        (explained variance).
-        """
+
         self._setup(X)
 
         K = self.kernel.matrix(self.X, demean=False)
@@ -76,14 +72,7 @@ class KernelPCA(KernelMachine, Transformation):
 
 
     def transform(self, X_new: np.ndarray) -> np.ndarray:
-        """
-        Transform data into the coordinate system defined by the
-        principal components including demeaning the data.
-        Raises
-        ------
-        ValueError
-            If the 'fit_transform' method has not been called yet
-        """
+
         if self.scores_ is None:
             raise ValueError("Call 'fit_transform' before this function.")
 
